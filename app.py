@@ -13,7 +13,7 @@ st.markdown("Upload your Excel file to generate a one-page PDF summary.")
 uploaded_file = st.file_uploader("Choose an Excel file", type=["xlsx", "xls"])
 
 if uploaded_file:
-    df = pd.read_excel(uploaded_file)
+    df = pd.read_excel(uploaded_file, skiprows=3)
     st.subheader("Preview of Uploaded File")
     st.write(df.head())
 
