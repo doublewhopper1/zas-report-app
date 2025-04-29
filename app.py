@@ -22,8 +22,9 @@ if uploaded_file:
     expenses = df[~df['Account'].str.contains('Sales|Revenue', case=False, na=False)].sum(numeric_only=True)
     kpis = {
         "Total Revenue": revenue.sum(),
-        "Total Expenses": expenses.iloc[-1],
-        "Net Profit": revenue.iloc[-1] - expenses.iloc[-1]
+        "Total Expenses": expenses.sum(),
+        "Net Profit": revenue.sum() - expenses.sum()
+
     }
 
     st.subheader("Key Metrics")
