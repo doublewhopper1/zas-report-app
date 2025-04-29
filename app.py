@@ -14,6 +14,7 @@ uploaded_file = st.file_uploader("Choose an Excel file", type=["xlsx", "xls"])
 
 if uploaded_file:
     df = pd.read_excel(uploaded_file, skiprows=3)
+    df.columns = ["Account", "Mar 2025", "Feb 2025"]
     st.subheader("Preview of Uploaded File")
     st.write(df.head())
 
